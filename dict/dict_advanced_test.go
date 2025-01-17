@@ -23,23 +23,25 @@ func ExampleReadFileLines() {
 	for _, w := range words {
 		fmt.Println(w)
 	}
+	//fmt.Println(len(words))
 
 	// Output:
-	// Apfel,apple
-	// Birne,pear
-	// Erdbeere,strawberry
-	// Wald,wood
-	// Wald,forest
-	// Haus,house
-	// Haus,mansion
-	// KatzeCat
-	// Monster,monster,creature,beast
+	//Apfel,apple
+	//Birne,pear
+	//Erdbeere,strawberry
+	//Wald,wood
+	//Wald,forest
+	//Haus,house
+	//Haus,mansion
+	//KatzeCat
+	//Monster,monster,creature,beast
 }
 
 func ExampleFromFile() {
 	d := FromFile("test_dictionary.csv")
 
 	fmt.Println(d.Size())
+	fmt.Println(d)
 
 	fmt.Println(d.LookupAll("Apfel"))
 	fmt.Println(d.LookupAll("Birne"))

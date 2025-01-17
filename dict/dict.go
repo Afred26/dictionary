@@ -13,34 +13,46 @@ func New() Dict {
 
 // Add fügt einen Eintrag zum Wörterbuch hinzu.
 func (d *Dict) Add(e entry.Entry) {
-	// TODO
+	d.entries = append(d.entries, e)
 }
 
 // Size gibt die Anzahl der Einträge im Wörterbuch zurück.
 func (d Dict) Size() int {
-	// TODO
-	return 0
+	return len(d.entries)
 }
 
 // GetDe gibt den Eintrag mit dem deutschen Wort de zurück.
 // Wenn kein Eintrag gefunden wird, wird ein leerer Eintrag zurückgegeben.
 func (d Dict) GetDe(de string) entry.Entry {
-	// TODO
-	return entry.Empty()
+	for _, i := range d.entries {
+		if de == i.De() {
+			return i
+		}
+	}
+	return entry.Entry{}
 }
 
 // Lookup sucht nach dem ersten Eintrag mit dem deutschen Wort de.
 // Wenn ein Eintrag gefunden wird, wird der entsprechende englische string geliefert.
 // Wenn kein Eintrag gefunden wird, wird ein leerer string zurückgegeben.
 func (d Dict) Lookup(de string) string {
-	// TODO
+	for _, i := range d.entries {
+		if de == i.De() {
+			return i.En()
+		}
+	}
 	return ""
 }
 
 // GetAllDe gibt alle Einträge zurück, die das deutsche Wort de enthalten.
 func (d Dict) GetAllDe(de string) []entry.Entry {
 	var result []entry.Entry
-	// TODO
+	for _, i := range d.entries {
+		if de == i.De() {
+			result = append(result, i)
+		}
+	}
+
 	return result
 }
 
@@ -48,6 +60,10 @@ func (d Dict) GetAllDe(de string) []entry.Entry {
 // Gibt eine Liste mit den entsprechenden englischen Wörtern zurück.
 func (d Dict) LookupAll(de string) []string {
 	var result []string
-	// TODO
+	for _, i := range d.entries {
+		if de == i.De() {
+			result = append(result, i.En())
+		}
+	}
 	return result
 }

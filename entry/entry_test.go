@@ -1,6 +1,8 @@
 package entry
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func ExampleNew() {
 	e1 := New("Apfel", "apple")
